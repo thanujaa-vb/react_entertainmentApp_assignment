@@ -1,0 +1,155 @@
+.App {
+  text-align: center;
+  margin-top: 20px;
+  flex-direction: row;
+}
+
+.headerCol{
+  float: left;
+  width: 33.33%;
+  padding-top: 20px;
+  background-color: blue;
+  
+}
+
+.headerCol p{
+  color: white;
+  padding-bottom: 10px;
+}
+
+.headerRow:after{
+  content: "";
+  display: table;
+  clear: both;
+  height: 20px;
+}
+
+.searchInputs{
+  margin-top: 10px;
+  background-color: white;
+  margin-left: 65px;
+  margin-right: 65px;
+  flex: 1;
+  box-shadow: 0 0 1px 1px #ccc;
+  position: relative;
+  height: 40px;
+}
+
+.searchInputs input{
+  background-color: white;
+  border-radius: 2px;
+  font-size: 15px;
+  height: 30px;
+  width: 90%;
+  margin-left: 0;
+  border-color: none;
+  border-width: 0;
+  outline: none;
+}
+
+.searchInputs img{
+  position: absolute;
+  right: 30px;
+  padding-top: 10px;
+}
+
+.songslist{
+  /*background-color: yellow;*/
+  border-radius: 2px;
+  font-size: 18px;
+  padding: 15px;
+  height: 400px;
+  margin-top: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.songslist .box{
+  /*background-color: brown;*/
+  border-radius: 2px;
+  font-size: 18px;
+  padding: 0;
+  height: 70%;
+  margin-top: 0px;
+  flex: 1;
+  margin-left: 0;
+  margin-right: 0;
+  overflow-y: scroll;
+  box-shadow: 0 0 1px 1px #ccc;
+}
+
+.songslist .box .box-row{
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+/*background-color: teal;*/
+height: 70px;
+border-bottom: 1px solid rgb(230, 227, 227);
+}
+
+.songslist .box .box-cell.box1{
+  /*background-color:violet;*/
+  width: 20px;
+  margin-left: 0;
+}
+
+.songslist .box .box-cell.box1 p{
+  font-size: small;
+  padding-top: 22px;
+}
+
+.songslist .box .box-cell.box2{
+  /*background-color:thistle;*/
+  width: 20px;
+  padding-top: 20px;
+}
+
+.songslist .box .box-cell.box3{
+  /*background-color:tan;*/
+  width: 50%;
+  text-align: left;
+  padding-left: 10px;
+  padding-top: 15px;
+  display: inline-block;
+}
+
+.songslist .box .box-cell.box3 p{
+  font-size: 14px;
+  /*background-color: burlywood;*/
+}
+
+.songslist .box .box-cell.box3 h5{
+  color: blue;
+}
+
+h5,p{
+  margin:0;
+}
+
+.songslist .box .box-cell.box4{
+  width: 40%;
+}
+.songslist .box .box-cell.box4 audio{
+ height: 20px;
+ margin-right: 20px;
+ width: 100%;
+ margin-top: 20px;
+}
+
+.songslist .box .box-cell.box5{
+ /* background-color:springgreen;*/
+  width: 60px;
+  padding-top: 20px;
+  padding-right: 0;
+}
+
+.songslist .addSongs button{
+border-radius: 50%;
+width: 50px;
+height: 50px;
+margin-left: 98%;
+margin-top: 10;
+background-color: orangered;
+border: none;
+color: white;
+}
+
