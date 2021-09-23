@@ -8,13 +8,31 @@
   float: left;
   width: 33.33%;
   padding-top: 20px;
-  background-color: blue;
-  
+  background-color: darkblue;
+}
+
+.headerCol3 p{
+  float: left;
+  width: 33.33%;
+  padding-top: 20px;
+  color: rgb(240, 126, 13);
+  padding-bottom: 15px;
+  font-weight: bold;
+  background-color: darkblue;
 }
 
 .headerCol p{
-  color: white;
-  padding-bottom: 10px;
+  color: rgb(240, 126, 13);
+  padding-bottom: 15px;
+  font-weight: bold;
+}
+
+.headerCol img{
+  padding-right: 10px;
+}
+
+.headerCol3 img{
+  padding-left: 10px;
 }
 
 .headerRow:after{
@@ -30,7 +48,7 @@
   margin-left: 65px;
   margin-right: 65px;
   flex: 1;
-  box-shadow: 0 0 1px 1px #ccc;
+  box-shadow: 0 0 2.2px 2.2px #ccc;
   position: relative;
   height: 40px;
 }
@@ -54,7 +72,6 @@
 }
 
 .songslist{
-  /*background-color: yellow;*/
   border-radius: 2px;
   font-size: 18px;
   padding: 15px;
@@ -64,7 +81,6 @@
   margin-right: 50px;
 }
 .songslist .box{
-  /*background-color: brown;*/
   border-radius: 2px;
   font-size: 18px;
   padding: 0;
@@ -74,37 +90,33 @@
   margin-left: 0;
   margin-right: 0;
   overflow-y: scroll;
-  box-shadow: 0 0 1px 1px #ccc;
+  box-shadow: 0px 0px 2px 2px #ccc;
 }
 
 .songslist .box .box-row{
   flex: 1;
   display: flex;
   flex-direction: row;
-/*background-color: teal;*/
 height: 70px;
 border-bottom: 1px solid rgb(230, 227, 227);
 }
 
-.songslist .box .box-cell.box1{
-  /*background-color:violet;*/
+.songslist .box .box-cell.count{
   width: 20px;
   margin-left: 0;
 }
 
-.songslist .box .box-cell.box1 p{
+.songslist .box .box-cell.count p{
   font-size: small;
   padding-top: 22px;
 }
 
-.songslist .box .box-cell.box2{
-  /*background-color:thistle;*/
+.songslist .box .box-cell.likes{
   width: 20px;
   padding-top: 20px;
 }
 
-.songslist .box .box-cell.box3{
-  /*background-color:tan;*/
+.songslist .box .box-cell.title{
   width: 50%;
   text-align: left;
   padding-left: 10px;
@@ -112,12 +124,11 @@ border-bottom: 1px solid rgb(230, 227, 227);
   display: inline-block;
 }
 
-.songslist .box .box-cell.box3 p{
+.songslist .box .box-cell.title p{
   font-size: 14px;
-  /*background-color: burlywood;*/
 }
 
-.songslist .box .box-cell.box3 h5{
+.songslist .box .box-cell.title h5{
   color: blue;
 }
 
@@ -125,18 +136,18 @@ h5,p{
   margin:0;
 }
 
-.songslist .box .box-cell.box4{
+.songslist .box .box-cell.audioclip{
   width: 40%;
 }
-.songslist .box .box-cell.box4 audio{
+
+.songslist .box .box-cell.audioclip audio{
  height: 20px;
  margin-right: 20px;
  width: 100%;
  margin-top: 20px;
 }
 
-.songslist .box .box-cell.box5{
- /* background-color:springgreen;*/
+.songslist .box .box-cell.delete{
   width: 60px;
   padding-top: 20px;
   padding-right: 0;
