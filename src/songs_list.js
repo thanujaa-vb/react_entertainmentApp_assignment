@@ -1,94 +1,55 @@
 import { blue } from "@material-ui/core/colors";
-import { Component } from "react";
+import { Component, useState } from "react";
 import searchImage from "./searchIcon.png";
-class songs_list extends Component{
-    render(){
-        const image='https://assets.ccbp.in/frontend/react-js/comments-app/liked-img.png'
-        return(
+import SongCard from "./song_card";
+class songs_list extends Component {
+    
+    constructor() {
+        super();
+        this.state = {
+            'tracks': [
+                { id: 1, like: 3, title: "Com Truise - FlightWave", subTitle: 'Reed', media: '' },
+                { id: 2, like: 3, title: "Claude Debussy - Clair de lune", subTitle: 'Reed', media: '' },
+                { id: 3, like: 2, title: "Culture Shock - Troglodyte", subTitle: 'Doug', media: '' },
+                { id: 4, like: 2, title: "Tycho - Montana", subTitle: 'Reed', media: '' }
+    
+            ]
+        };
+    }
+    addNewTrack() {
+        var newIndex = this.state.tracks.length + 1;
+       var newTrack = { id: newIndex, like: 0, title: 'Track '+ newIndex, subTitle: 'Default', media: '' };
+       this.setState({tracks: [...this.state.tracks, newTrack]});
+   }
+   deleteTrack = (trackDetails)=>{
+     this.setState({tracks: this.state.tracks.filter(item => item.id != trackDetails.id)});    
+   }
+
+   likeTrack = (trackDetails)=>{ 
+      trackDetails.like= trackDetails.like + 1;
+      var list = [...this.state.tracks];
+      list[trackDetails.id-1]= trackDetails;
+      this.setState({tracks: list});
+   }
+    render() {
+        const image = 'https://assets.ccbp.in/frontend/react-js/comments-app/liked-img.png'
+        
+        return (
             <div className='songslist'>
-            <div className="box">
-                <div className="box-row">
-                    <div className="box-cell box1">
-                        <p>1</p>
-                    </div>
-                    <div className="box-cell box2">
-                        <img src={image}></img>
-                    </div>
-                    <div className="box-cell box3">
-                        <h5>Com Truise - Flightwave</h5>
-                        <p>Reed</p>
-                    </div>
-                    <div className="box-cell box4">
-                        <audio controls></audio>
-                    </div>
-                    <div className="box-cell box5">
-                        <img src='https://assets.ccbp.in/frontend/react-js/comments-app/delete-img.png'></img>
-                    </div>
+                <div className="box">{
+                    this.state.tracks.map((item) => {
+                       return <SongCard  onLike= {this.likeTrack} onDelClick= {this.deleteTrack} trackDetails= {item} />
+                    })
+                }
                 </div>
-                
-                <div className="box-row">
-                    <div className="box-cell box1">
-                        <p>2</p>
-                    </div>
-                    <div className="box-cell box2">
-                        <img src={image}></img>
-                    </div>
-                    <div className="box-cell box3">
-                       <h5>Claude Debussy - Clair de Lune</h5>
-                       <p>Reed</p>
-                    </div>
-                    <div className="box-cell box4">
-                        <audio controls></audio>
-                    </div>
-                    <div className="box-cell box5">
-                        <img src='https://assets.ccbp.in/frontend/react-js/comments-app/delete-img.png'></img>
-                    </div>
+                <div className='addSongs'>
+                    <button onClick={this.addNewTrack.bind(this)}>+</button>
                 </div>
-                <div className="box-row">
-                    <div className="box-cell box1">
-                        <p>3</p>
-                    </div>
-                    <div className="box-cell box2">
-                        <img src={image}></img>
-                    </div>
-                    <div className="box-cell box3">
-                        <h5>Culture Shock - Troglodyte</h5>
-                        <p>Doug</p>
-                    </div>
-                    <div className="box-cell box4">
-                        <audio controls></audio>
-                    </div>
-                    <div className="box-cell box5">
-                        <img src='https://assets.ccbp.in/frontend/react-js/comments-app/delete-img.png'></img>
-                    </div>
-                </div>
-                <div className="box-row">
-                    <div className="box-cell box1">
-                        <p>3</p>
-                    </div>
-                    <div className="box-cell box2">
-                        <img src={image}></img>
-                    </div>
-                    <div className="box-cell box3">
-                        <h5>Tycho - Montana</h5>
-                        <p>Reed</p>
-                    </div>
-                    <div className="box-cell box4">
-                        <audio controls></audio>
-                    </div>
-                    <div className="box-cell box5">
-                        <img src='https://assets.ccbp.in/frontend/react-js/comments-app/delete-img.png'></img>
-                    </div>
-                </div>
-                
-</div>
-<div className='addSongs'>
-    <button>+</button>
-</div>
             </div>
-            
+
         );
     }
 
+     
 }
 export default songs_list;
