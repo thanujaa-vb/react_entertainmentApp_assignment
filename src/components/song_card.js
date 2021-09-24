@@ -6,7 +6,7 @@ class SongCard extends Component {
         return (
             <div className="box-row">
                 <div className="box-cell count">
-                    <p>{this.props.trackDetails.like}</p>
+                    <p style={{color:this.props.trackDetails.isLiked ? 'red': 'gray'}}>{this.props.trackDetails.like}</p>
                 </div>
                 <div className="box-cell likes">
                     <img src={this.props.trackDetails.isLiked ? afterImg : beforeImg} onClick={() => this.onLikeClick()} height="20px" width="20px"></img>

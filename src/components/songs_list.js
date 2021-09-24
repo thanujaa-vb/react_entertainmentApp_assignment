@@ -12,14 +12,17 @@ class songs_list extends Component {
         super();
         this.state = {
             tracks: trackList,
+            filterText: ''
         };
         this.searchTrack = this.searchTrack.bind(this);
     }
 
     componentDidMount() {
-        this.props.setClick(this.getAlert);
+        this.props.searchTrack(this.searchTrack);
     }
+    
     render() {
+        const {data, filter} = this.state;
         return (
             <div className='songslist'>
                 <div className="box">{
@@ -35,28 +38,41 @@ class songs_list extends Component {
         );
     }
 
+    updatedTrack(){
+        var filtered =  trackList.filter(eachData => eachData.title.toLowerCase().includes(this.state.filterText.toLowerCase().trim()));
+        this.setState({ tracks: filtered });
+    }
+
     addNewTrack() {
         var newIndex = trackList.length + 1;
         var newTrack = { id: newIndex, like: 0, title: 'Track ' + newIndex, subTitle: 'Default', media: '', isLiked: false };
         trackList.push(newTrack);
-        this.setState({ tracks: trackList });
+        
+        this.updatedTrack();
     }
 
     deleteTrack = (trackDetails) => {
         var trackDetailIndex = trackList.indexOf(trackDetails);
         trackList.splice(trackDetailIndex, 1);
-        this.setState({ tracks: trackList });
+        this.updatedTrack();
     }
 
     likeTrack = (trackDetails) => {
         var likeIndex = trackList.indexOf(trackDetails);
+        if(trackDetails.isLiked==false){
         trackDetails.like = trackDetails.like + 1;
         trackDetails.isLiked = true;
+        }
+        else{
+            trackDetails.like = trackDetails.like - 1;
+            trackDetails.isLiked = false;
+        }
         trackList[likeIndex] = trackDetails;
-        this.setState({ tracks: trackList });
+        this.updatedTrack();
     }
 
     searchTrack(searchText) {
+        this.setState({filterText: searchText});
         if (searchText.length === 0) {
             this.setState({ tracks: trackList });
         }

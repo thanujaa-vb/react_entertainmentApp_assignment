@@ -14,7 +14,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <SearchBar searchCallback={(e) => this.searchCall(e)} />
-        <SongsList searchText={this.state.searchText} setClick={click => this.searchCall = click} />
+        <SongsList searchText={this.state.searchText} searchTrack={click => this.searchCall = click} />
       </div>
     );
   }
